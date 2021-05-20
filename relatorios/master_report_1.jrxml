@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="master_report_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fadea31b-c911-4afc-8179-ef7351a9f372">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQLDB"/>
+	<queryString language="SQL">
+		<![CDATA[select id, nm_cliente, cpf
+from aula.cliente]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="295" splitType="Stretch">
+			<frame>
+				<reportElement x="7" y="0" width="540" height="50" uuid="24dd1236-92c9-41ba-92c6-196e20f55fad"/>
+				<subreport overflowType="Stretch">
+					<reportElement mode="Opaque" x="0" y="30" width="270" height="20" backcolor="#655EE6" uuid="9500aa05-a742-45a1-9313-e03edd6fc87f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<subreportParameter name="id_cliente">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA["detail_report_1.jasper"]]></subreportExpression>
+				</subreport>
+				<rectangle>
+					<reportElement stretchType="ContainerHeight" x="270" y="30" width="270" height="20" backcolor="#9C4060" uuid="48be7e75-a974-447f-8dbb-38212db1ec21">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+				</rectangle>
+				<subreport>
+					<reportElement x="270" y="30" width="270" height="20" uuid="589f16ee-72ca-4c96-b450-3d385318cead"/>
+					<subreportParameter name="id_cliente">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA["detail_report_2.jasper"]]></subreportExpression>
+				</subreport>
+				<frame>
+					<reportElement x="0" y="0" width="540" height="30" uuid="b3c68d90-0f81-44a0-938f-b69bcf485466">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<rectangle>
+						<reportElement mode="Opaque" x="0" y="0" width="540" height="30" backcolor="#F2F2F2" uuid="94015c5e-361c-49bd-85fa-1aa543b6df59"/>
+					</rectangle>
+					<textField>
+						<reportElement stretchType="ContainerHeight" x="0" y="0" width="270" height="30" uuid="9064320b-e92b-43a9-940a-523c6347619f">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16fc588f-22a4-4c9f-ac9b-301ec13a1bb2"/>
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nm_cliente}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement stretchType="ContainerHeight" x="270" y="0" width="270" height="30" uuid="7ff541bd-3bca-4397-8a0b-e9b1a236f440">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39ca374a-1690-4e43-ab86-adee5f1f98ea"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+			<subreport>
+				<reportElement mode="Opaque" x="7" y="90" width="540" height="85" backcolor="#44FF3B" uuid="7c8e4349-22a6-4888-aeb6-0d7a75d80908"/>
+				<subreportParameter name="id_cliente">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["exemplocinco.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

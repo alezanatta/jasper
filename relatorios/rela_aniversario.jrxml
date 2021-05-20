@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rela_aniversario" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ed6eea7-b0f7-4c3a-93d4-7a22d2d8841f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQLDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT nm_cliente,
+			MONTH(dt_nascimento)
+FROM aula.cliente
+WHERE MONTH(dt_nascimento) = MONTH(NOW())
+GROUP BY MONTH(dt_nascimento)]]>
+	</queryString>
+	<field name="nm_cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MONTH(dt_nascimento)" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="MONTH(dt_nascimento)"/>
+		<property name="com.jaspersoft.studio.field.label" value="MONTH(dt_nascimento)"/>
+	</field>
+	<variable name="nm_cliente1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{nm_cliente}]]></variableExpression>
+	</variable>
+	<variable name="nm_cliente2" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{nm_cliente}]]></variableExpression>
+	</variable>
+	<group name="MONTH(dt_nascimento)">
+		<groupExpression><![CDATA[$F{MONTH(dt_nascimento)}]]></groupExpression>
+		<groupHeader>
+			<band height="25"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="570" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="560" height="470" uuid="a7d978d6-76d4-405c-8b6b-94267061a3a5"/>
+				<imageExpression><![CDATA["C:/Users/SUPORTE/Documents/aulajasper/24309.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="9" width="400" height="30" uuid="8aa89695-fc2d-4529-ba80-96393ffcaf1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[ANIVERSARIANTES DO MÊS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<textField>
+				<reportElement x="120" y="20" width="90" height="20" uuid="f0da3ac4-bc55-4eac-b04e-894ab9618aef"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MONTH(dt_nascimento)}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="120" height="20" uuid="f14ad296-bc7b-49d7-8fa6-10af0e132a14"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Mês de referência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="160" height="20" uuid="afb541bb-6950-4928-92ef-3a6839041291"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total de aniversariantes:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="40" width="100" height="20" uuid="3845643a-c7f8-40e1-b6f9-bc683fb0365e"/>
+				<textFieldExpression><![CDATA[$V{nm_cliente2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="560" height="30" uuid="415542c8-9954-44a7-9cab-91855d20a5bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6549a385-8de3-475f-9e13-f98277075739"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_cliente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

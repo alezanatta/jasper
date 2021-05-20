@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="exemploquatro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d16539bd-8290-44de-90f8-0f479b626dd5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="YXVsYS5jbGllbnRlICwxNSwxNSxlYzhiZmZjNC05ZWM4LTQxZGYtYmIyMi03MGJhYzc1YWE5NmY7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQLDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+	email,
+	nm_cliente,
+	cpf
+FROM aula.cliente]]>
+	</queryString>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="280" height="30" uuid="a29ab46c-8b70-4be7-bf24-641168aaa72d"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Contato dos clientes:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="280" height="30" uuid="479f4bd0-8614-448b-968b-9d44a21af0e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b92da6ea-3a5d-48c1-9a9b-774d3a812115"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="280" height="30" uuid="0275135b-b415-4e56-a55c-49e7031d13ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="401e46c1-7959-4b6b-99ab-a41befd6f094"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="280" height="30" uuid="9b2bf60a-f188-427f-9b32-b01030245870">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b92da6ea-3a5d-48c1-9a9b-774d3a812115"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="280" height="30" uuid="67d169d4-0540-4f52-89bb-2019798c16d4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="401e46c1-7959-4b6b-99ab-a41befd6f094"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
